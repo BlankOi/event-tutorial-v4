@@ -1,0 +1,7 @@
+{
+  "name": "EventManager",
+  "type": "angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
