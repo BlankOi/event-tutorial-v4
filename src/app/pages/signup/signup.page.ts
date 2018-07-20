@@ -34,14 +34,14 @@ export class SignupPage implements OnInit {
 
   ngOnInit() {}
 
-  async signupUser(): Promise<void> {
-    if (!this.signupForm.valid) {
+  async signupUser(signupForm: FormGroup): Promise<void> {
+    if (!signupForm.valid) {
       console.log(
-        `Need to complete the form, current value: ${this.signupForm.value}`
+        `Need to complete the form, current value: ${signupForm.value}`
       );
     } else {
-      const email: string = this.signupForm.value.email;
-      const password: string = this.signupForm.value.password;
+      const email: string = signupForm.value.email;
+      const password: string = signupForm.value.password;
 
       this.authService.signupUser(email, password).then(
         () => {

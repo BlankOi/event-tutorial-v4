@@ -30,7 +30,6 @@ export class AuthService {
   }
 
   resetPassword(email: string): Promise<void> {
-    console.log('Reset Password');
     return firebase.auth().sendPasswordResetEmail(email);
   }
 

@@ -28,17 +28,15 @@ export class ResetPasswordPage implements OnInit {
 
   ngOnInit() {}
 
-  resetPassword(): void {
-    console.log('Does it even call he function?');
-    if (!this.resetPasswordForm.valid) {
+  resetPassword(resetPasswordForm: FormGroup): void {
+    if (!resetPasswordForm.valid) {
       console.log(
-        `Form is not valid yet, current value: ${this.resetPasswordForm.value}`
+        `Form is not valid yet, current value: ${resetPasswordForm.value}`
       );
     } else {
-      const email: string = this.resetPasswordForm.value.email;
+      const email: string = resetPasswordForm.value.email;
       this.authService.resetPassword(email).then(
         async () => {
-          console.log('Resetting password component');
           const alert = await this.alertCtrl.create({
             message: 'Check your email for a password reset link',
             buttons: [
