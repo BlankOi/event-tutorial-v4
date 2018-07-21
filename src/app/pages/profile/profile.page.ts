@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
 })
 export class ProfilePage implements OnInit {
   public userProfile: any;
-  public birthDate: string;
+  public birthDate: Date;
   constructor(
     private alertCtrl: AlertController,
     private authService: AuthService,
     private profileService: ProfileService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.profileService.getUserProfile().on('value', userProfileSnapshot => {
@@ -62,8 +62,23 @@ export class ProfilePage implements OnInit {
     await alert.present();
   }
 
-  updateDOB(birthDate: string): void {
-    this.profileService.updateDOB(birthDate);
+  updateDOB(birthDate: any): void {
+    console.log(birthDate);
+    if (birthDate === undefined) {
+      return;
+    } else if (
+      birthDate.year === undefined ||
+      birthDate.month === undefined ||
+      birthDate.day === undefined
+    ) {
+      return;
+    }
+    const dateOfBirth: Date = new Date(
+      birthDate.year.value,
+      birthDate.month.value - 1,
+      birthDate.day.value
+    );
+    this.profileService.updateDOB(dateOfBirth);
   }
 
   async updateEmail(): Promise<void> {
@@ -113,5 +128,4 @@ export class ProfilePage implements OnInit {
     });
     alert.present();
   }
-
 }

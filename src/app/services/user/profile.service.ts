@@ -26,7 +26,7 @@ export class ProfileService {
     return this.userProfile.update({ firstName, lastName });
   }
 
-  updateDOB(birthDate: string): Promise<any> {
+  updateDOB(birthDate: any): Promise<any> {
     return this.userProfile.update({ birthDate });
   }
 
@@ -36,7 +36,7 @@ export class ProfileService {
       password
     );
     return this.currentUser
-      .reauthenticateWithCredential(credential)
+      .reauthenticateAndRetrieveDataWithCredential(credential)
       .then(user => {
         this.currentUser.updateEmail(newEmail).then(() => {
           this.userProfile.update({ email: newEmail });
@@ -54,7 +54,7 @@ export class ProfileService {
     );
 
     return this.currentUser
-      .reauthenticateWithCredential(credential)
+      .reauthenticateAndRetrieveDataWithCredential(credential)
       .then(user => {
         this.currentUser.updatePassword(newPassword).then(() => {
           console.log('Password Changed');
