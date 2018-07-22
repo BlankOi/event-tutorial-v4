@@ -57,14 +57,18 @@ export class EventService {
           return event;
         });
         if (guestPicture != null) {
-          return firebase
+          const storageRef = firebase
             .storage()
-            .ref(`/guestProfile/${newGuest.key}/profilePicture.png`)
+            .ref(`/guestProfile/${newGuest.key}/profilePicture.png`);
+
+          return storageRef
             .putString(guestPicture, 'base64', { contentType: 'image/png' })
-            .then(savedPicture => {
-              this.eventListRef
-                .child(`${eventId}/guestList/${newGuest.key}/profilePicture`)
-                .set(savedPicture.downloadURL);
+            .then(() => {
+              return storageRef.getDownloadURL().then(downloadURL => {
+                return this.eventListRef
+                  .child(`${eventId}/guestList/${newGuest.key}/profilePicture`)
+                  .set(downloadURL);
+              });
             });
         }
       });

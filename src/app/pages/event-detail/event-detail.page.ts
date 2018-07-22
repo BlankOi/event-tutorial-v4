@@ -49,7 +49,6 @@ export class EventDetailPage implements OnInit {
     };
     try {
       const profilePicture = await this.cameraPlugin.getPicture(cameraOptions);
-      console.log(profilePicture);
       this.guestPicture = profilePicture;
     } catch (error) {
       console.error(error);
