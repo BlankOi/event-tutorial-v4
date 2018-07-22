@@ -23,11 +23,11 @@
       <ion-label>
         <ion-grid>
           <ion-row>
-            <ion-col col-6> Name </ion-col>
-            <ion-col col-6 *ngIf="userProfile?.firstName || userProfile?.lastName">
+            <ion-col class="text-left" size="5"> Name </ion-col>
+            <ion-col class="text-center" size="7" *ngIf="userProfile?.firstName || userProfile?.lastName">
               {{userProfile?.firstName}} {{userProfile?.lastName}}
             </ion-col>
-            <ion-col col-6 class="placeholder-profile" *ngIf="!userProfile?.firstName">
+            <ion-col size="7" class="placeholder-profile text-center" *ngIf="!userProfile?.firstName">
               <span> Tap here to edit. </span>
             </ion-col>
           </ion-row>
@@ -36,20 +36,20 @@
     </ion-item>
 
     <ion-item>
-      <ion-label class="dob-label">Date of Birth</ion-label>
-      <ion-datetime #birthDateRef [value]="birthDate" displayFormat="D MMM YYYY" pickerFormat="D MMM YYYY" (ionStyle)="updateDOB(birthDateRef.value)"
-        max="2018" placeholder="When is your birth date?"></ion-datetime>
+      <ion-label class="text-left" class="dob-label">Date of Birth</ion-label>
+      <ion-datetime class="text-center" #birthDateRef [value]="birthDate" displayFormat="D MMM YYYY" pickerFormat="D MMM YYYY"
+        (ionStyle)="updateDOB(birthDateRef.value)" max="2018" placeholder="When is your birth date?"></ion-datetime>
     </ion-item>
 
     <ion-item (click)="updateEmail()">
       <ion-label>
         <ion-grid>
           <ion-row>
-            <ion-col col-6> Email </ion-col>
-            <ion-col col-6 *ngIf="userProfile?.email">
+            <ion-col class="text-left" size="5"> Email </ion-col>
+            <ion-col class="text-center" size="7" *ngIf="userProfile?.email">
               {{userProfile?.email}}
             </ion-col>
-            <ion-col col-6 class="placeholder-profile" *ngIf="!userProfile?.email">
+            <ion-col size="7" class="placeholder-profile text-center" *ngIf="!userProfile?.email">
               <span> Tap here to edit. </span>
             </ion-col>
           </ion-row>
@@ -61,8 +61,8 @@
       <ion-label>
         <ion-grid>
           <ion-row>
-            <ion-col col-6> Password </ion-col>
-            <ion-col col-6 class="placeholder-profile">
+            <ion-col class="text-left" size="5"> Password </ion-col>
+            <ion-col class="text-center" size="7" class="placeholder-profile">
               <span> Tap here to edit. </span>
             </ion-col>
           </ion-row>
