@@ -21,13 +21,13 @@ export class EventService {
 
   createEvent(
     eventName: string,
-    eventDate: string,
+    eventDate: Date,
     eventPrice: number,
     eventCost: number
   ): firebase.database.ThenableReference {
     return this.eventListRef.push({
       name: eventName,
-      date: eventDate,
+      date: eventDate.toDateString(),
       price: eventPrice * 1,
       cost: eventCost * 1,
       revenue: eventCost * -1,
