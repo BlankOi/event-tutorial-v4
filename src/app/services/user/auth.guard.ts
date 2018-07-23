@@ -8,13 +8,12 @@ import {
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router) {}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
