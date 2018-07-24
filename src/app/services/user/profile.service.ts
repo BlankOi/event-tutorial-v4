@@ -37,7 +37,7 @@ export class ProfileService {
     );
     return this.currentUser
       .reauthenticateAndRetrieveDataWithCredential(credential)
-      .then(user => {
+      .then(() => {
         this.currentUser.updateEmail(newEmail).then(() => {
           this.userProfile.update({ email: newEmail });
         });
@@ -55,7 +55,7 @@ export class ProfileService {
 
     return this.currentUser
       .reauthenticateAndRetrieveDataWithCredential(credential)
-      .then(user => {
+      .then(() => {
         this.currentUser.updatePassword(newPassword).then(() => {
           console.log('Password Changed');
         });

@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  Validators,
-  FormControl,
-  FormBuilder,
-} from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { AuthService } from '../../services/user/auth.service';
 import { Router } from '@angular/router';
@@ -16,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
   public loginForm: FormGroup;
-  public loading: any;
+  public loading: HTMLIonLoadingElement;
   constructor(
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
@@ -37,7 +32,7 @@ export class LoginPage implements OnInit {
 
   async loginUser(loginForm: FormGroup): Promise<void> {
     if (!loginForm.valid) {
-      console.log(`Form is not valid yet, current value:`, loginForm.value);
+      console.log('Form is not valid yet, current value:', loginForm.value);
     } else {
       const email = loginForm.value.email;
       const password = loginForm.value.password;

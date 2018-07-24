@@ -104,7 +104,7 @@ export class ProfilePage implements OnInit {
         },
       ],
     });
-    alert.present();
+    await alert.present();
   }
 
   async updatePassword(): Promise<void> {
@@ -126,6 +126,6 @@ export class ProfilePage implements OnInit {
         },
       ],
     });
-    alert.present();
+    await alert.present();
   }
 }

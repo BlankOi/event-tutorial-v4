@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EmailValidator } from '../../validators/email';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,10 +20,7 @@ export class SignupPage implements OnInit {
     private router: Router
   ) {
     this.signupForm = this.formBuilder.group({
-      email: [
-        '',
-        Validators.compose([Validators.required, EmailValidator.isValid]),
-      ],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
       password: [
         '',
         Validators.compose([Validators.minLength(6), Validators.required]),

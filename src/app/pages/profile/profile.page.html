@@ -3,11 +3,10 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ (userProfile?.firstName && userProfile?.lastName) ? userProfile?.firstName + ' ' + userProfile?.lastName : 'Profile
-      Page' }}</ion-title>
+    <ion-title>Profile Page</ion-title>
     <ion-buttons slot="end">
-      <ion-button icon-only (click)="logOut()">
-        <ion-icon name="log-out"></ion-icon>
+      <ion-button (click)="logOut()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

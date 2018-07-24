@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/user/auth.service';
 import { AlertController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EmailValidator } from '../../validators/email';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,10 +18,7 @@ export class ResetPasswordPage implements OnInit {
     private router: Router
   ) {
     this.resetPasswordForm = this.formBuilder.group({
-      email: [
-        '',
-        Validators.compose([Validators.required, EmailValidator.isValid]),
-      ],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
     });
   }
 
