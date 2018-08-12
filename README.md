@@ -26,11 +26,7 @@ Or https:
 $ git clone https://github.com/javebratt/event-tutorial-v4.git
 ```
 
-Once cloned, move into the app folder and edit the name of the file
-`app/credentials.backup.ts` to be simply `app/credentials.ts`.
-
-Inside that file you'll add your Firebase keys which you can get from
-[the Firebase Console](https://console.firebase.google.com)
+Once cloned, create a file located at `app/config/credentials.ts`. You will hold your Firebase credentials there, you can find those inside your [Firebase Console](https://console.firebase.google.com)
 
 ## Usage example
 
