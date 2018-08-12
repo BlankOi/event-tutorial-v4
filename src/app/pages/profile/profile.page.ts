@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class ProfilePage implements OnInit {
   public userProfile: any;
   public birthDate: Date;
+
   constructor(
     private alertCtrl: AlertController,
     private authService: AuthService,
@@ -63,7 +64,6 @@ export class ProfilePage implements OnInit {
   }
 
   updateDOB(birthDate: any): void {
-    console.log(birthDate);
     if (birthDate === undefined) {
       return;
     } else if (
@@ -80,7 +80,6 @@ export class ProfilePage implements OnInit {
     );
     this.profileService.updateDOB(dateOfBirth);
   }
-
   async updateEmail(): Promise<void> {
     const alert = await this.alertCtrl.create({
       inputs: [

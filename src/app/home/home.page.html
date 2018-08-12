@@ -2,19 +2,19 @@
   <ion-toolbar>
     <ion-title></ion-title>
     <ion-buttons slot="end">
-      <ion-button icon-only routerLink="/profile">
-        <ion-icon name="person"></ion-icon>
+      <ion-button href="/profile">
+        <ion-icon slot="icon-only" name="person"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-button expand="block" color="primary" routerLink="/event-create">
+  <ion-button expand="block" color="primary" href="/event-create">
     Create a new Event
   </ion-button>
 
-  <ion-button expand="block" color="primary" routerLink="/event-list">
+  <ion-button expand="block" color="primary" href="/event-list">
     See your events
   </ion-button>
 </ion-content>

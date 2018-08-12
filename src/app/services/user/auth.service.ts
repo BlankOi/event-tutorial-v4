@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
@@ -9,11 +10,14 @@ import 'firebase/database';
 export class AuthService {
   constructor() {}
 
-  loginUser(email: string, password: string): Promise<any> {
+  loginUser(
+    email: string,
+    password: string
+  ): Promise<firebase.auth.UserCredential> {
     return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
-  signupUser(email: string, password: string): Promise<any> {
+  signupUser(email: string, password: string): Promise<void> {
     return firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)

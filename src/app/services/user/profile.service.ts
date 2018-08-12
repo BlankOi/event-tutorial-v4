@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+
 import * as firebase from 'firebase/app';
+import 'firebase/auth';
 import 'firebase/database';
 
 @Injectable({
@@ -26,7 +28,7 @@ export class ProfileService {
     return this.userProfile.update({ firstName, lastName });
   }
 
-  updateDOB(birthDate: any): Promise<any> {
+  updateDOB(birthDate: Date): Promise<any> {
     return this.userProfile.update({ birthDate });
   }
 

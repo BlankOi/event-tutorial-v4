@@ -27,7 +27,8 @@ export class ResetPasswordPage implements OnInit {
   resetPassword(resetPasswordForm: FormGroup): void {
     if (!resetPasswordForm.valid) {
       console.log(
-        `Form is not valid yet, current value: ${resetPasswordForm.value}`
+        'Form is not valid yet, current value:',
+        resetPasswordForm.value
       );
     } else {
       const email: string = resetPasswordForm.value.email;

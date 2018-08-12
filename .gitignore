@@ -13,6 +13,7 @@ log.txt
 npm-debug.log*
 
 .idea/
+.ionic/
 .sourcemaps/
 .sass-cache/
 .tmp/
@@ -31,3 +32,6 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+#Ignore Native Builds
+android/

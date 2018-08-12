@@ -10,8 +10,8 @@ import { LoginPage } from './login.page';
 const routes: Routes = [
   {
     path: '',
-    component: LoginPage,
-  },
+    component: LoginPage
+  }
 ];
 
 @NgModule({
@@ -20,8 +20,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild(routes)
   ],
-  declarations: [LoginPage],
+  declarations: [LoginPage]
 })
 export class LoginPageModule {}

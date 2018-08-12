@@ -3,15 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './services/user/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full', canActivate: [AuthGuard] },
   {
     path: 'home',
-    loadChildren: './pages/home/home.module#HomePageModule',
+    loadChildren: './home/home.module#HomePageModule',
     canActivate: [AuthGuard],
-  },
-  {
-    path: 'signup',
-    loadChildren: './pages/signup/signup.module#SignupPageModule',
   },
   {
     path: 'event-create',
@@ -41,7 +37,12 @@ const routes: Routes = [
     loadChildren:
       './pages/reset-password/reset-password.module#ResetPasswordPageModule',
   },
+  {
+    path: 'signup',
+    loadChildren: './pages/signup/signup.module#SignupPageModule',
+  },
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],

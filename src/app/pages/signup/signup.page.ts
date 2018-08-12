@@ -33,7 +33,8 @@ export class SignupPage implements OnInit {
   async signupUser(signupForm: FormGroup): Promise<void> {
     if (!signupForm.valid) {
       console.log(
-        `Need to complete the form, current value: ${signupForm.value}`
+        'Need to complete the form, current value: ',
+        signupForm.value
       );
     } else {
       const email: string = signupForm.value.email;

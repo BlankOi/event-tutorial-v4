@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../../services/event/event.service';
 import { ActivatedRoute } from '@angular/router';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Plugins, CameraResultType } from '@capacitor/core';
+
+const { Camera } = Plugins;
 
 @Component({
   selector: 'app-event-detail',
@@ -12,12 +14,7 @@ export class EventDetailPage implements OnInit {
   public currentEvent: any = {};
   public guestName: string;
   public guestPicture: string = null;
-
-  constructor(
-    private eventService: EventService,
-    private route: ActivatedRoute,
-    private cameraPlugin: Camera
-  ) {}
+  constructor(private eventService: EventService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     const eventId: string = this.route.snapshot.paramMap.get('id');
@@ -42,14 +39,13 @@ export class EventDetailPage implements OnInit {
   }
 
   async takePicture(): Promise<void> {
-    const cameraOptions: CameraOptions = {
-      quality: 100,
-      destinationType: this.cameraPlugin.DestinationType.DATA_URL,
-      encodingType: this.cameraPlugin.EncodingType.PNG,
-    };
     try {
-      const profilePicture = await this.cameraPlugin.getPicture(cameraOptions);
-      this.guestPicture = profilePicture;
+      const profilePicture = await Camera.getPhoto({
+        quality: 90,
+        allowEditing: false,
+        resultType: CameraResultType.Base64,
+      });
+      this.guestPicture = profilePicture.base64Data.slice(23);
     } catch (error) {
       console.error(error);
     }

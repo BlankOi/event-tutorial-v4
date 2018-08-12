@@ -1,7 +1,7 @@
 {
   "name": "EventManager",
-  "type": "angular",
   "integrations": {
-    "cordova": {}
-  }
+    "capacitor": {}
+  },
+  "type": "angular"
 }

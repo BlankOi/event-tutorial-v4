@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
   public loginForm: FormGroup;
   public loading: HTMLIonLoadingElement;
+
   constructor(
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
@@ -20,7 +21,8 @@ export class LoginPage implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.compose([Validators.required, Validators.email])],
+      email: ['',
+        Validators.compose([Validators.required, Validators.email])],
       password: [
         '',
         Validators.compose([Validators.required, Validators.minLength(6)]),
